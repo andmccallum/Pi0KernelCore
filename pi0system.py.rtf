@@ -1,0 +1,153 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red233\green233\blue233;}
+{\*\expandedcolortbl;;\cssrgb\c92941\c92941\c92941;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+# Create the minimal zero-dependency package structure and core files\
+import os\
+\
+# Define directories and files content\
+dirs = ["pi0system", "pi0system/builds"]\
+for d in dirs:\
+    os.makedirs(d, exist_ok=True)\
+\
+# core.py: abstract calculator with hooks exposed\
+core_py = '''"""\
+pi0system core module: abstract calculator and operator registry\
+Zero dependencies, pure Python.\
+"""\
+\
+class PI0Kernel:\
+    def __init__(self):\
+        self._operators = \{\}\
+\
+    def register(self, name, func):\
+        """Register an operator function under a name."""\
+        self._operators[name] = func\
+\
+    def execute(self, name, *args, **kwargs):\
+        """Execute a registered operator by name."""\
+        if name not in self._operators:\
+            raise KeyError("Operator \{\} not found".format(name))\
+        return self._operators[name](*args, **kwargs)\
+\
+# Example abstract calculator function\
+\
+def add(a, b):\
+    """Add two numbers."""\
+    return a + b\
+\
+# Expose default kernel instance\
+kernel = PI0Kernel()\
+kernel.register('add', add)\
+'''\
+\
+# quant_ext.py: hooks for extensions\
+quant_ext_py = '''"""\
+QuantumPythonExtensions hooks module\
+Zero dependencies.\
+"""\
+\
+class ExtensionRegistry:\
+    def __init__(self):\
+        self._hooks = \{\}\
+\
+    def register_hook(self, hook_name, func):\
+        """Register a hook function."""\
+        if hook_name not in self._hooks:\
+            self._hooks[hook_name] = []\
+        self._hooks[hook_name].append(func)\
+\
+    def run_hooks(self, hook_name, *args, **kwargs):\
+        """Run all functions registered under hook_name."""\
+        results = []\
+        for f in self._hooks.get(hook_name, []):\
+            results.append(f(*args, **kwargs))\
+        return results\
+\
+# Global extension registry\
+ext_registry = ExtensionRegistry()\
+'''\
+\
+# zerotrust.py: simple policy enforcement\
+zerotrust_py = '''"""\
+ZeroTrust enforcement module\
+Zero dependencies.\
+"""\
+\
+class ZeroTrustPolicy:\
+    def __init__(self, allowed_modules=None):\
+        # list of allowed module names\
+        self.allowed = set(allowed_modules or [])\
+\
+    def attest(self, module_name):\
+        """Check if module_name is allowed."""\
+        if module_name not in self.allowed:\
+            raise PermissionError(f"Module \{module_name\} is not in trust policy")\
+        return True\
+\
+# Default policy: only core and quant_ext allowed\
+default_policy = ZeroTrustPolicy(allowed_modules=['core', 'quant_ext'])\
+'''\
+\
+# builds/make_piz.py: script to package into .pyz and sign\
+make_piz_py = '''"""\
+Build script: create standalone .pyz archive and compute SHA256 signature\
+Zero dependencies.\
+"""\
+import zipapp, hashlib, os, sys\
+\
+def build(target, output_dir='dist'):\
+    os.makedirs(output_dir, exist_ok=True)\
+    archive_name = f"pi0system_\{target\}.pyz"\
+    archive_path = os.path.join(output_dir, archive_name)\
+    # create pyz archive\
+    zipapp.create_archive('pi0system', archive_path, main=None)\
+    # compute signature\
+    h = hashlib.sha256()\
+    with open(archive_path, 'rb') as f:\
+        while True:\
+            chunk = f.read(8192)\
+            if not chunk:\
+                break\
+            h.update(chunk)\
+    sig_path = archive_path + '.sig'\
+    with open(sig_path, 'w') as s:\
+        s.write(h.hexdigest())\
+    print(f"Built \{archive_path\} and signature \{sig_path\}")\
+\
+if __name__ == '__main__':\
+    target = sys.argv[1] if len(sys.argv) > 1 else 'core'\
+    build(target)\
+'''\
+\
+# Write files\
+with open('pi0system/core.py', 'w') as f:\
+    f.write(core_py)\
+with open('pi0system/quant_ext.py', 'w') as f:\
+    f.write(quant_ext_py)\
+with open('pi0system/zerotrust.py', 'w') as f:\
+    f.write(zerotrust_py)\
+with open('pi0system/__init__.py', 'w') as f:\
+    f.write('# pi0system init - zero dependencies, expose core and extensions\\\
+')\
+    f.write('from .core import kernel, PI0Kernel, add\\\
+')\
+    f.write('from .quant_ext import ext_registry\\\
+')\
+    f.write('from .zerotrust import default_policy, ZeroTrustPolicy\\\
+')\
+with open('pi0system/builds/make_piz.py', 'w') as f:\
+    f.write(make_piz_py)\
+\
+# Print directory structure\
+for root, dirs, files in os.walk('pi0system'):\
+    level = root.count(os.sep)\
+    indent = '    ' * level\
+    print(f"\{indent\}\{os.path.basename(root)\}/")\
+    for file in files:\
+        print(f"\{indent\}    \{file\}")}
