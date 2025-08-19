@@ -1,0 +1,44 @@
+Pi0System DmChessLive Rules Export
+====================================
+Protocol Hash: 0x7d3f9a2e
+Export Date: 2025-05-13
+Archive Path: Pi0Archive/DmChess/Rules/2025/05
+
+REAL WORLD RULES (BASE VERSION)
+------------------------------
+1. Board Configuration
+   - Diamond pattern
+   - 4 standard chess boards
+   - Connected at corners
+   - Unified play space
+
+2. Sovereign Rules
+   - One per player
+   - Cross-board movement
+   - Must be protected
+   - Loss = game over
+
+3. Movement Rules
+   - Standard chess within boards
+   - Corner connections active
+   - Cross-board at connections
+   - Clear declaration required
+
+4. Victory Conditions
+   - Checkmate on any board
+   - Sovereign capture
+   - Board control scenarios
+
+ONLINE VERSION
+-------------
+- Base rules apply
+- Digital board display
+- Move validation system
+- Cross-board visualization
+
+SOLO VERSION
+-----------
+- AI opponents
+- Training scenarios
+- Strategy analysis
+- Replay system
