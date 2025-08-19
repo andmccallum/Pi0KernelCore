@@ -1,0 +1,8 @@
+def pi0_system_demo():  
+    """  
+    1. Define random x0, A, W1, W2, eps, steps  
+    2. Run run_pi0_pipeline  
+    3. Compute consciousness_score  
+    4. Print final_state, quantum_penalty, consciousness  
+    """  
+    # (implementation omitted for brevity)  

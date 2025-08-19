@@ -1,0 +1,46 @@
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    BARYON ACOUSTIC OSCILLATIONS MODULE                      ║
+║                         Pi0 Framework Integration                           ║
+║                    Hash: 9ee96c91 | Module: BAO_V4                          ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+SOUND HORIZON CALCULATION (Agnostic):
+═══════════════════════════════════
+r_s = ∫₀^t_rec c_s(t) dt / a(t)
+
+Where:
+- c_s(t) = Sound speed in baryon-photon fluid
+- a(t) = Scale factor evolution
+- t_rec = Recombination time (~380,000 years)
+
+SOUND SPEED (Temperature-Independent Form):
+═════════════════════════════════════════
+c_s = c/√(3(1 + 3η₀/4))
+
+Where η₀ = n_b/n_γ = baryon-to-photon ratio
+
+NUMERICAL VALUES:
+════════════════
+r_s ≈ 147.09 ± 0.26 Mpc (Planck 2018)
+η₀ ≈ 6.14 × 10⁻¹⁰
+c_s ≈ c/√3 ≈ 0.577c (radiation-dominated era)
+
+BAO ANGULAR SCALE:
+═════════════════
+θ_BAO = r_s/D_A(z)
+
+Where D_A(z) is angular diameter distance
+
+GALACTIC COUPLING:
+═════════════════
+λ_galactic = r_s × (H₀/V_c)
+k_BAO = 2π/λ_galactic
+Coupling strength: α_BAO = k_BAO/k_spiral
+
+OBSERVATIONAL SIGNATURES:
+════════════════════════
+- Galaxy correlation function peaks at ~150 Mpc
+- CMB acoustic peaks at l ≈ 220, 540, 800...
+- Ly-α forest correlations
+- Galaxy clustering anisotropies

@@ -1,0 +1,248 @@
+
+================================================================================
+MATHEMATICAL SUPPLEMENT - DETAILED EQUATIONS IN ASCII NOTATION
+================================================================================
+
+GRAVITATIONAL WAVE EQUATIONS
+=============================
+
+Linearized Einstein Equations:
+    □h_μν = -16πG/c⁴ T_μν^TT
+
+where □ = d'Alembertian operator = ∂²/∂t² - c²∇²
+
+Strain tensor for gravitational waves:
+    h_+ = A_+ cos(2πft + φ_+)
+    h_× = A_× cos(2πft + φ_×)
+
+Quadrupole formula for GW emission:
+    h_ij(t,r) = (2G/c⁴r) d²I_ij^TT/dt²|_{t-r/c}
+
+STELLAR STRUCTURE EQUATIONS
+===========================
+
+Mass continuity:
+    dM(r)/dr = 4πr²ρ(r)
+
+Hydrostatic equilibrium:
+    dP(r)/dr = -GM(r)ρ(r)/r²
+
+Energy transport (radiative):
+    dT(r)/dr = -(3κρ/16πacT³) L(r)/(4πr²)
+
+Energy generation:
+    dL(r)/dr = 4πr²ρ(r)ε(r)
+
+Nuclear reaction rates:
+    ε_pp = 2.5 × 10⁻⁴ ρ X² T₆⁴ exp(-33.8/T₆^(1/3)) erg/g/s
+    ε_CNO = 8.8 × 10⁻²⁶ ρ X Y_CNO T₆²⁰ exp(-152.3/T₆^(1/3)) erg/g/s
+
+GALACTIC DYNAMICS
+=================
+
+Poisson equation for gravitational potential:
+    ∇²Φ = 4πGρ
+
+Circular velocity:
+    v_c²(r) = r dΦ/dr = GM(<r)/r
+
+Epicyclic frequency:
+    κ² = 4Ω²[1 + (1/2Ω) dΩ/dr]
+
+Density wave dispersion relation:
+    (ω - mΩ)² = κ² + c_s²k²
+
+MAGNETOHYDRODYNAMICS
+====================
+
+Continuity equation:
+    ∂ρ/∂t + ∇·(ρv) = 0
+
+Momentum equation:
+    ρ(∂v/∂t + v·∇v) = -∇P + (1/4π)(∇×B)×B + ρg
+
+Induction equation:
+    ∂B/∂t = ∇×(v×B) + η∇²B
+
+Energy equation:
+    ∂e/∂t + ∇·(ev) = -P∇·v + η|∇×B|²/(4π) + Q
+
+RADIATIVE TRANSFER
+==================
+
+Radiative transfer equation:
+    (1/c)∂I/∂t + n̂·∇I = -κI + j
+
+where:
+    I = specific intensity
+    κ = absorption coefficient  
+    j = emission coefficient
+
+Optical depth:
+    τ = ∫ κ ds
+
+Source function:
+    S = j/κ
+
+Formal solution:
+    I(τ) = I(0)e^(-τ) + ∫₀^τ S(t)e^(-(τ-t)) dt
+
+PLASMA PHYSICS
+==============
+
+Debye length:
+    λ_D = √(ε₀kT/(ne²))
+
+Plasma frequency:
+    ω_p = √(4πne²/m)
+
+Cyclotron frequency:
+    ω_c = eB/mc
+
+Alfvén velocity:
+    v_A = B/√(4πρ)
+
+COSMOLOGICAL EQUATIONS
+======================
+
+Friedmann equations:
+    H² = (8πG/3)ρ - kc²/a² + Λc²/3
+    
+    ä/a = -(4πG/3)(ρ + 3P/c²) + Λc²/3
+
+Continuity equation:
+    dρ/dt + 3H(ρ + P/c²) = 0
+
+Critical density:
+    ρ_c = 3H²/(8πG)
+
+DARK MATTER PROFILES
+====================
+
+NFW profile:
+    ρ(r) = ρ_s/[(r/r_s)(1 + r/r_s)²]
+
+Einasto profile:
+    ln[ρ(r)/ρ_s] = -(2/α)[(r/r_s)^α - 1]
+
+Burkert profile:
+    ρ(r) = ρ₀r₀³/[(r + r₀)(r² + r₀²)]
+
+SUPERNOVA PHYSICS
+=================
+
+Chandrasekhar mass:
+    M_Ch = (ħc/G)^(3/2) (1/m_p²) (2/μ_e)² ≈ 1.4 M_☉
+
+Tolman-Oppenheimer-Volkoff equation:
+    dP/dr = -G(ρ + P/c²)(M + 4πr³P/c²)/[r(r - 2GM/c²)]
+
+Explosion energy:
+    E_exp = ∫ (1/2)ρv² dV
+
+ACCRETION PHYSICS
+=================
+
+Bondi accretion rate:
+    Ṁ = 4πλρ_∞(GM)²/(c_s³)
+
+Eddington luminosity:
+    L_Edd = 4πGMm_p c/σ_T
+
+Shakura-Sunyaev α-disk:
+    ν = αc_s H
+
+where ν = kinematic viscosity, H = disk scale height
+
+BINARY EVOLUTION
+================
+
+Gravitational wave inspiral:
+    df/dt = (96π/5)(πGM_chirp f/c³)^(5/3) f^(11/3)
+
+Chirp mass:
+    M_chirp = (m₁m₂)^(3/5)/(m₁ + m₂)^(1/5)
+
+Orbital decay:
+    da/dt = -(64/5)(G³/c⁵)(m₁m₂(m₁+m₂)/a³)
+
+QUANTUM CORRECTIONS
+===================
+
+Hawking temperature:
+    T_H = ħc³/(8πGMk_B)
+
+Schwarzschild radius:
+    r_s = 2GM/c²
+
+Planck length:
+    l_Pl = √(ħG/c³)
+
+Quantum gravity scale:
+    E_Pl = √(ħc⁵/G)
+
+VERIFICATION METRICS
+====================
+
+Chi-squared test:
+    χ² = Σᵢ (O_ᵢ - E_ᵢ)²/σᵢ²
+
+Reduced chi-squared:
+    χ_ν² = χ²/(N - p)
+
+where N = number of data points, p = number of parameters
+
+Kolmogorov-Smirnov test statistic:
+    D = max|F_n(x) - F(x)|
+
+Bayesian evidence:
+    Z = ∫ L(θ)π(θ) dθ
+
+NUMERICAL METHODS
+=================
+
+Runge-Kutta 4th order:
+    k₁ = hf(tₙ, yₙ)
+    k₂ = hf(tₙ + h/2, yₙ + k₁/2)  
+    k₃ = hf(tₙ + h/2, yₙ + k₂/2)
+    k₄ = hf(tₙ + h, yₙ + k₃)
+    yₙ₊₁ = yₙ + (k₁ + 2k₂ + 2k₃ + k₄)/6
+
+Adaptive mesh refinement criterion:
+    |∇²u| > threshold
+
+Courant-Friedrichs-Lewy condition:
+    Δt ≤ C Δx/|v_max|
+
+ERROR ANALYSIS
+==============
+
+Truncation error:
+    E_trunc = O(Δx^p)
+
+Round-off error:
+    E_round = ε_mach × |result|
+
+Total error:
+    E_total = E_trunc + E_round + E_discretization
+
+Convergence rate:
+    p = log(|E₁|/|E₂|)/log(h₁/h₂)
+
+DIMENSIONAL ANALYSIS
+====================
+
+Fundamental constants:
+    G = 6.674 × 10⁻¹¹ m³ kg⁻¹ s⁻²
+    c = 2.998 × 10⁸ m s⁻¹
+    ħ = 1.055 × 10⁻³⁴ J s
+    k_B = 1.381 × 10⁻²³ J K⁻¹
+
+Natural units (c = ħ = G = 1):
+    [length] = [time] = [mass]⁻¹
+    [energy] = [mass]
+
+Scaling relations:
+    t_dyn ~ √(R³/GM)
+    t_cool ~ E_thermal/L_cooling
+    t_ff ~ √(1/Gρ)

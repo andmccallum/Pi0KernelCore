@@ -1,0 +1,248 @@
+
+================================================================================
+MATHEMATICAL SUPPLEMENT - DETAILED EQUATIONS & ALGORITHMS
+================================================================================
+
+================================================================================
+SECTION A – PRECISE GRAVITATIONAL FIELD EQUATIONS
+================================================================================
+
+A.1 Einstein Field Equations (Component Form)
+
+    R_μν - (1/2)g_μν R + Λg_μν = (8πG/c⁴) T_μν
+
+Expanded components in spherical coordinates (t,r,θ,φ):
+
+    R_tt = -(1/2r²) d/dr[r(1-2GM/rc²)] + Λ
+    R_rr = (GM/r²c²)(1-2GM/rc²)⁻¹ + Λ  
+    R_θθ = r²[1 + GM/rc² - Λr²/3]
+    R_φφ = R_θθ sin²θ
+
+A.2 Schwarzschild Metric
+
+    ds² = -(1-2GM/rc²)c²dt² + (1-2GM/rc²)⁻¹dr² + r²dΩ²
+
+A.3 Kerr Metric (Rotating Black Hole)
+
+    ds² = -(1-2GMr/ρ²c²)c²dt² + (4GMar sinθ/ρ²c)dtdφ + 
+          (ρ²/Δ)dr² + ρ²dθ² + (r²+a²cos²θ)sin²θ dφ²
+
+where:
+    ρ² = r² + a²cos²θ
+    Δ = r² - 2GMr/c² + a²
+    a = J/(Mc) = angular momentum parameter
+
+================================================================================
+SECTION B – N-BODY DYNAMICS WITH RELATIVISTIC CORRECTIONS
+================================================================================
+
+B.1 Post-Newtonian Equations of Motion
+
+    d²r_i/dt² = a_N + a_1PN + a_2PN + a_2.5PN + ...
+
+B.2 Newtonian Acceleration
+
+    a_N = -G ∑_{j≠i} m_j (r_i - r_j)/|r_i - r_j|³
+
+B.3 First Post-Newtonian (1PN) Terms
+
+    a_1PN = (G/c²) ∑_{j≠i} m_j/r_ij³ × [
+        (5G(m_i+m_j)/r_ij - v_i² + 4v_i·v_j - 2v_j²)n_ij +
+        4(v_i-v_j)(v_i·n_ij)
+    ]
+
+B.4 Gravitational Wave Radiation (2.5PN)
+
+    a_2.5PN = -(2G²/5c⁵) ∑_{j≠i} (m_i m_j/r_ij²) × [
+        (v_i-v_j) - 3(v_i-v_j)·n_ij n_ij
+    ]
+
+================================================================================
+SECTION C – STELLAR STRUCTURE & EVOLUTION EQUATIONS
+================================================================================
+
+C.1 Complete Stellar Structure Equations
+
+    dm/dr = 4πr²ρ                    (mass continuity)
+    dP/dr = -Gm ρ/r²                 (hydrostatic equilibrium)  
+    dL/dr = 4πr²ρε                   (energy generation)
+    dT/dr = -(3κρL)/(16πacT³r²)      (radiative transport)
+
+C.2 Convective Transport (Mixing Length Theory)
+
+    dT/dr = (1-1/γ)(T/P)(dP/dr)      when ∇ > ∇_ad
+
+    Convective velocity:
+    v_conv = (gδ H_p Δ∇/2)^(1/2)
+
+C.3 Nuclear Reaction Networks
+
+    Proton-Proton Chain:
+    ε_pp = 2.57×10⁴ ρ X² T₆^(-2/3) exp(-33.80 T₆^(-1/3)) erg/g/s
+
+    CNO Cycle:  
+    ε_CNO = 8.24×10²⁵ ρ X X_CNO T₆^(-2/3) exp(-152.28 T₆^(-1/3)) erg/g/s
+
+C.4 Stellar Wind Mass Loss
+
+    dM/dt = -4πR²ρ(R) v_wind
+    
+    v_wind = v_esc √[α/(1-Γ)]  where Γ = κL/(4πcGM)
+
+================================================================================
+SECTION D – GALACTIC DYNAMICS & DARK MATTER MODELING
+================================================================================
+
+D.1 Galactic Potential Components
+
+    Φ_total(r,z) = Φ_bulge + Φ_disk + Φ_halo + Φ_bar
+
+D.2 Exponential Disk Potential
+
+    Φ_disk(R,z) = -πGΣ₀R_d ∫₀^∞ dk k J₀(kR) e^(-k|z|) I₀(kR_d) K₀(kR_d)
+
+D.3 NFW Dark Matter Halo
+
+    ρ_NFW(r) = ρ_s/[(r/r_s)(1+r/r_s)²]
+    
+    Φ_NFW(r) = -4πGρ_s r_s³ ln(1+r/r_s)/r
+
+D.4 Spiral Density Wave
+
+    Φ_spiral = A(r) cos[m(φ - Ω_p t) - ∫ k(r')dr']
+    
+    where k(r) = m(Ω-Ω_p)/(κ+mΩ_p/2)  (dispersion relation)
+
+================================================================================
+SECTION E – MAGNETOHYDRODYNAMICS & PLASMA PHYSICS
+================================================================================
+
+E.1 Ideal MHD Equations
+
+    ∂ρ/∂t + ∇·(ρv) = 0
+    ρ(∂v/∂t + v·∇v) = -∇P + (1/4π)(∇×B)×B + ρg
+    ∂B/∂t = ∇×(v×B)
+    ∇·B = 0
+
+E.2 Resistive MHD (with magnetic diffusion)
+
+    ∂B/∂t = ∇×(v×B) + η∇²B
+
+E.3 Synchrotron Emission
+
+    Power: P_sync = (2e⁴B²sin²α)/(3m_e²c³) γ²
+    
+    Frequency: ν_sync = (3eB sinα)/(4πm_e c) γ²
+
+E.4 Compton Scattering Cross-Section
+
+    σ_C = (8π/3)(e²/m_e c²)² = 6.65×10⁻²⁵ cm²
+
+================================================================================
+SECTION F – QUANTUM CORRECTIONS & HYBRID OPERATORS
+================================================================================
+
+F.1 Quantum Gravity Scale
+
+    l_Planck = √(ℏG/c³) = 1.616×10⁻³⁵ m
+    t_Planck = √(ℏG/c⁵) = 5.391×10⁻⁴⁴ s
+    E_Planck = √(ℏc⁵/G) = 1.956×10⁹ J
+
+F.2 Vacuum Energy Density
+
+    ρ_vac = (ℏc/8π²) ∫₀^Λ k³ dk = (ℏcΛ⁴)/(16π²)
+
+F.3 Casimir Effect
+
+    F_Casimir = -(π²ℏc)/(240a⁴)  (force between parallel plates)
+
+F.4 Hybrid Classical-Quantum Hamiltonian
+
+    H = H_classical + λ(E/E_Planck) H_quantum
+    
+    where λ controls the quantum contribution strength
+
+================================================================================
+SECTION G – OBSERVATIONAL DATA PROCESSING ALGORITHMS
+================================================================================
+
+G.1 Photometric Calibration
+
+    m_calibrated = m_instrumental - k×(airmass-1) - C×(color) + ZP
+
+G.2 Astrometric Reduction
+
+    (α,δ) = T⁻¹(x,y)  where T includes:
+    - Geometric distortion correction
+    - Atmospheric refraction  
+    - Proper motion
+    - Parallax
+    - Aberration
+
+G.3 Spectroscopic Analysis
+
+    Equivalent Width: EW = ∫(1 - F_λ/F_continuum) dλ
+    
+    Radial Velocity: v_r = c(λ_obs - λ_rest)/λ_rest
+
+G.4 Gravitational Wave Data Analysis
+
+    Matched Filtering: ρ = 4Re ∫₀^∞ [h̃(f)s̃*(f)]/S_n(f) df
+    
+    where h̃(f) = template, s̃(f) = data, S_n(f) = noise PSD
+
+================================================================================
+SECTION H – STATISTICAL VALIDATION & ERROR ANALYSIS
+================================================================================
+
+H.1 Chi-Square Goodness of Fit
+
+    χ² = ∑ᵢ (O_i - E_i)²/σᵢ²
+    
+    Reduced: χ²_ν = χ²/(N-p)  where p = number of parameters
+
+H.2 Maximum Likelihood Estimation
+
+    L(θ) = ∏ᵢ P(x_i|θ)
+    
+    ln L = ∑ᵢ ln P(x_i|θ)
+
+H.3 Bayesian Parameter Estimation
+
+    P(θ|D) = P(D|θ)P(θ)/P(D)
+    
+    Marginalized: P(θ₁|D) = ∫ P(θ₁,θ₂|D) dθ₂
+
+H.4 Bootstrap Error Estimation
+
+    θ̂_boot = (1/B) ∑ᵦ θ̂_b  where θ̂_b from resampled data
+
+================================================================================
+SECTION I – COMPUTATIONAL ALGORITHMS
+================================================================================
+
+I.1 Runge-Kutta Integration (4th Order)
+
+    k₁ = h f(t_n, y_n)
+    k₂ = h f(t_n + h/2, y_n + k₁/2)  
+    k₃ = h f(t_n + h/2, y_n + k₂/2)
+    k₄ = h f(t_n + h, y_n + k₃)
+    
+    y_{n+1} = y_n + (k₁ + 2k₂ + 2k₃ + k₄)/6
+
+I.2 Adaptive Mesh Refinement
+
+    Refine cell if: |∇u| > threshold  or  |∂u/∂t| > threshold
+
+I.3 Fast Fourier Transform
+
+    X_k = ∑_{n=0}^{N-1} x_n e^{-2πikn/N}
+
+I.4 Monte Carlo Integration
+
+    ∫f(x)dx ≈ (b-a)/N ∑ᵢ f(xᵢ)  where xᵢ ~ U(a,b)
+
+================================================================================
+This mathematical supplement provides the precise equations and algorithms
+needed to implement the Universal Astrophysical Framework in any simulation
+environment, with full mathematical rigor and computational detail.

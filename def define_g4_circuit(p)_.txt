@@ -1,0 +1,10 @@
+def define_g4_circuit(p):  
+    # public input: oracle_value  
+    circuit = {}  
+    circuit['steps'] = [  
+        ("r1", "exp_mod", {"base":4, "exp":4, "mod":p}),  
+        ("r2", "exp_mod", {"base":4, "exp":"r1", "mod":p}),  
+        ("r3", "exp_mod", {"base":4, "exp":"r2", "mod":p}),  
+        ("assert", "equal", {"a":"r3", "b":"oracle_value"})  
+    ]  
+    return circuit  

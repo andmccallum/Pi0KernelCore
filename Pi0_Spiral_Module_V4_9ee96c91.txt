@@ -1,0 +1,45 @@
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    SPIRAL DENSITY WAVE MODULE                               ║
+║                         Complete Mathematical Framework                     ║
+║                    Hash: 9ee96c91 | Module: SPIRAL_V4                       ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+FUNDAMENTAL EQUATIONS:
+═════════════════════
+Spiral Wave Potential:
+Φ_spiral(r,φ,t) = A(r) cos[m(φ - Ω_p t) - ∫k(r')dr']
+
+Dispersion Relation:
+k(r) = m(Ω(r) - Ω_p) / (κ(r) + mΩ_p/2)
+
+Epicyclic Frequency:
+κ²(r) = 4Ω²(r) + r d[Ω²(r)]/dr
+
+LINEARIZED PERTURBATION EQUATIONS:
+═════════════════════════════════
+Radial: ∂²ξ_r/∂t² - 2Ω∂ξ_φ/∂t = -∂Φ₁/∂r
+Azimuthal: ∂²ξ_φ/∂t² + (κ²/2Ω)ξ_r = -(1/r)∂Φ₁/∂φ
+
+WAVE SOLUTIONS:
+══════════════
+ξ_r = ξ₀ exp[i(mφ - ωt - ∫k dr)]
+ξ_φ = (ω - mΩ)/(2Ω) ξ_r
+
+RESONANCE CONDITIONS:
+════════════════════
+Corotation: Ω(r) = Ω_p
+Inner Lindblad: Ω(r) - κ(r)/m = Ω_p  
+Outer Lindblad: Ω(r) + κ(r)/m = Ω_p
+
+QUANTUM CORRECTIONS:
+═══════════════════
+Φ_quantum = Φ_classical + ℏ²∇²Φ/(2m_eff)
+Correction factor: δ = ℏ²k²/(2m_eff)
+Typical value: δ ~ 10⁻⁶⁰ (negligible for stellar scales)
+
+OBSERVATIONAL PARAMETERS:
+════════════════════════
+Pattern speed: Ω_p ≈ 20-30 km/s/kpc
+Pitch angle: tan(i) = m/(kr)
+Arm strength: |A/Φ₀| ~ 0.05-0.15
